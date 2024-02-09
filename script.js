@@ -9,6 +9,8 @@ function submit() {
     let TitleElement = document.getElementById("titleInput");
     let AnnualSalaryElement = document.getElementById("annualSalaryInput");
 
+
+
     let tablebody = document.querySelector("tbody");
     tablebody.innerHTML += `
    <td>
@@ -51,8 +53,10 @@ function Calculatetotalsalary(isMinus = false) {
         totalSalary = totalSalary + Number(element.textContent);
     }
     const totalElement = document.getElementById("total");
-    totalElement.innerHTML = `<h3>Total Monthly: ${totalSalary}</h3>`
-    if (totalSalary > 20000) {
+    const monthly = totalSalary / 12
+
+    totalElement.innerHTML = `<h3>Total Monthly: ${monthly}</h3>`
+    if (monthly > 20000) {
         totalElement.classList.add("over-budget");
     } else {
         totalElement.classList.remove("over-budget");
